@@ -13,7 +13,7 @@ const CountryInfo = (props)=>{
         <div>
             <button onClick={()=>navigate("/")} className={`md:mt-16 md:ml-16 mt-8 ml-8 px-6 rounded-md py-2 flex gap-2 font-semibold items-center background ${isDarkMode ? "bg-[#2B3945] text-[#FAFAFA] hover:bg-transparent hover:border-[#2B3945]" : "bg-[#FAFAFA] hover:bg-transparent hover:border-[#FAFAFA]"}`}><FaArrowLeft /> Back</button>
 
-            <div className={`background w-fit border-4 rounded-md lg:mx-auto mx-8 px-10 pt-2 lg:mt-2 mt-6d pb-4 space-y-4 ${isDarkMode ? "border-[#2B3945]" : "border-[#FAFAFA]"}`}>
+            <div className={`background w-fit border-4 rounded-md lg:mx-auto mx-8 px-10 pt-2 lg:mt-2 mt-6 pb-4 space-y-4 ${isDarkMode ? "border-[#2B3945]" : "border-[#FAFAFA]"}`}>
                 <img src={country.flags.png} alt={country.flags.alt} /> 
                 <h3 className={`font-bold text-lg ${isDarkMode ? "text-[#FAFAFA]" : "text-gray-800"}`}>{country.name.common}</h3>
                 <div className="space-y-[2px]">
