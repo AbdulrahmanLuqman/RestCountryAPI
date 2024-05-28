@@ -17,7 +17,7 @@ const Countries = (props)=>{
             {
                 isLoading ? (<h2 className="text-3xl text-red-500">Loading...</h2>) :
                 <>
-                ({countries.map((country, index) =>
+                {countries.map((country, index) =>
                     <div onClick={()=> toCountryInfo(country)} key={index} className={`cursor-pointer md:w-full w-[250px] mx-auto background rounded-md ${isDarkMode ? "bg-[#2B3945]" : "bg-[#FAFAFA]"}`}>
                         <img className="h-[150px] w-full" src={country.flags.png} alt={country.flags.alt} />
                         <div className="p-4 space-y-4">
@@ -29,7 +29,7 @@ const Countries = (props)=>{
                             </div>
                         </div>
                     </div>
-                )})
+                )}
                 </>
             }
             
