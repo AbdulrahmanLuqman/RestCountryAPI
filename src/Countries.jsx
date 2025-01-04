@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom"
-import React, { useState } from "react"
+
+import { useContext } from "react"
+
+import { DarkMode, Country, IsLoading } from "./App"
 
 
-const Countries = (props)=>{
-    const isDarkMode = props.mode
-    const countries = props.countries
-    const isLoading = props.isLoading
-    const setIsLoading = props.setIsLoading
+const Countries = ()=>{
+    const isDarkMode = useContext(DarkMode)
+    const countries = useContext(Country)
+    const isLoading = useContext(IsLoading)
+    // const setIsLoading = useContext(SetIsLoading)
     const navigate = useNavigate()
     const toCountryInfo = (country)=>{
         // console.log(country)

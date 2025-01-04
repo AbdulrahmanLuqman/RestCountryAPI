@@ -1,16 +1,18 @@
-import React, {useState} from "react"
+import  {useContext} from "react"
 import { FaMoon } from "react-icons/fa"
 import { FaSun } from "react-icons/fa"
+import { DarkMode, HandleModeToggle } from "./App"
 
-const Mode = (props)=>{
-    // const [isDarkMode, setIsDarkMode] = useState(true)
-    const isDarkMode = props.mode
-    const setIsDarkMode = props.setMode
+const Mode = ()=>{
+    const isDarkMode = useContext(DarkMode)
+    console.log(isDarkMode)
+    // const setIsDarkMode = useContext(SetDarkMode)
+    const handleModeToggle = useContext(HandleModeToggle)
     isDarkMode ? document.body.style.backgroundColor = "#212E37" : document.body.style.backgroundColor = "whitesmoke"
 
-    const handleModeToggle = ()=>{
-        setIsDarkMode(!isDarkMode)
-    }
+    // const handleModeToggle = ()=>{
+    //     setIsDarkMode(!isDarkMode)
+    // }
 
 
     return(

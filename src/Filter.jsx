@@ -1,15 +1,20 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { FaArrowDown } from "react-icons/fa6"
 import { FaSearch } from "react-icons/fa"
 
-const Filter = (props)=>{
-    const isDarkMode = props.mode
-    const countries = props.countries
-    const setCountries = props.setCountries
+import { useContext } from "react"
+
+import { DarkMode, Country, SetCountries } from "./App"
+
+const Filter = ()=>{
+    const isDarkMode =useContext(DarkMode);
+    const countries =useContext(Country);
+    const setCountries = useContext(SetCountries);
+    // const countryInput = useContext(CountryInput);
+    // const setCountryInput = useContext(SetCountryInput);
     const [showRegion, setShowRegion] = useState(false)
 
     // console.log(countries)
-
     const handleRegion = ()=>{
         setShowRegion(!showRegion)
     }
@@ -17,8 +22,8 @@ const Filter = (props)=>{
     const handleAfricaRegion = ()=>{
         setShowRegion(!showRegion)
         const africaCountries = countries.filter(country => country.region === "Africa")  
-        console.log(africaCountries)
-        // setCountries(africaCountries)      
+        // console.log(africaCountries)
+        setCountries(africaCountries)      
     }
     const handleAmericaRegion = ()=>{
         setShowRegion(!showRegion)
@@ -29,23 +34,29 @@ const Filter = (props)=>{
     const handleAsiaRegion = ()=>{
         setShowRegion(!showRegion)
         const asiaCountries = countries.filter(country => country.region === "Asia")
-        console.log(asiaCountries)
-        // setCountries(asiaCountries)
+        // console.log(asiaCountries)
+        setCountries(asiaCountries)
     }
     const handleEuropeRegion = ()=>{
         setShowRegion(!showRegion)
         const europeCountries = countries.filter(country => country.region === "Europe")
-        console.log(europeCountries)
-        // setCountries(europeCountries)
+        // console.log(europeCountries)
+        setCountries(europeCountries)
     }
     const handleOceaniaRegion = ()=>{
         setShowRegion(!showRegion)
         const oceaniaCountries = countries.filter(country => country.region === "Oceania")
-        console.log(oceaniaCountries)
-        // setCountries(oceaniaCountries)
+        // console.log(oceaniaCountries)
+        setCountries(oceaniaCountries)
     }
     const handleFilter = (e)=>{
-        setCountries(countries.filter(country => country.name.common.toLowerCase().includes(e.target.value)))
+        const inputValue = e.target.value
+        // setCountryInput(inputValue)
+        // const containsLetters = countries.filter(country => country.name.common.toLowerCase().includes(countryInput))
+
+
+        const filteredCountries = inputValue ? countries.filter(country => country.name.common.toLowerCase().includes(inputValue)) : countries
+        setCountries(filteredCountries)
     }
     return(
         <div className="md:px-16 px-8 my-12 flex min-[600px]:flex-row flex-col gap-2 justify-between">
@@ -72,3 +83,9 @@ const Filter = (props)=>{
 }
 
 export default Filter
+
+
+
+
+
+// setCountries(countries.filter(country => country.name.common.toLowerCase().includes(e.target.value)))

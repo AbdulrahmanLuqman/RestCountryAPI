@@ -1,9 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { FaArrowLeft } from "react-icons/fa"
 
+import { DarkMode } from "./App"
+import { useContext } from "react"
 
-const CountryInfo = (props)=>{
-    const isDarkMode = props.mode
+const CountryInfo = ()=>{
+    const isDarkMode = useContext(DarkMode)
     const location = useLocation()
     const navigate = useNavigate()
     const country = location.state?.country
